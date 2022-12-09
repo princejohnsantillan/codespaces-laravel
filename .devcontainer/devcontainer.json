@@ -2,6 +2,11 @@
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "postCreateCommand": [
     "cd /workspaces/codespaces-laravel",
-    "cp .env.example .env"
+    "cp .env.example .env",
+    "./docker/sail up -d",
+    "./docker/sail composer install",
+    "./docker/sail restart",
+    "./docker/sail artisan key:generate",
+    "./docker/sail artisan migrate"
   ]
 }
